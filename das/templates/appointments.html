@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .appointment-list {
+            padding: 2em;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        li:hover {
+            transform: scale(1.03);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 0 10px;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <script src="https://app.wotnot.io/chat-widget/4diUiRhpuFJe132307471359hagS3DZa.js" defer></script>
+    <header>
+        <h1>Appointments</h1>
+    </header>
+
+    <div class="container">
+        <section class="appointment-list">
+            <h2>Upcoming Appointments</h2>
+            <ul>
+                {% for x in myappointments %}
+                <li>
+                    <strong>Patient Name </strong>{{ x.patientname }}<br>
+                    <strong>Doctor's Name </strong>{{ x.doctorname }}<br>
+                    <strong>Appointment Date </strong>{{ x.date }}<br>
+                    <strong>Details </strong>{{ x.details }}<br>
+                </li>
+                {% endfor %}
+            </ul>
+            <p>Looking to book a new appointment? <a href="book_appointment.html">Click here</a>.</p>
+        </section>
+    </div>
+    <p>Back to <a href="/">Home</a></p>
+
+    <footer>
+        <p>&copy; 2023 Doctor Appointment System</p>
+    </footer>
+</body>
+</html>

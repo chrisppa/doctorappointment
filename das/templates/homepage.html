@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 2em;
+            background-color: #f0f0f0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .services-section {
+            padding: 2em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://app.wotnot.io/chat-widget/4diUiRhpuFJe132307471359hagS3DZa.js" defer></script>
+    <header>
+        <h1>Doctor Appointment System</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/appointments/{{ x.id }}">Appointments</a></li>
+                <li><a href="#">Doctors</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Welcome to Our Doctor Appointment System</h2>
+        <p>Book appointments with ease and get the medical care you need.</p>
+        <a href="/appointments/{{ x.id }}" class="cta-button">My Appointments</a>
+    </section>
+
+    <section class="services-section">
+        <h2>Our Services</h2>
+        <p>We offer a range of medical services to meet your healthcare needs.</p>
+        <ul>
+            {% for x in myappointments %}
+              <li><a href="appointments/{{ x.id }}">{{ x.doctorname }} {{ x.date }}</a></li>
+            {% endfor %}
+        </ul>
+        <!-- Add service details here -->
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Doctor Appointment System</p>
+    </footer>
+</body>
+
+</html>
